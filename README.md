@@ -36,7 +36,9 @@ Please input:y -> Accept ToS
 Please input:aethir wallet create
 [...] 
 ~~~
+
 Optional: Backup the private key
+~~~
 Please input:aethir wallet export
 [...] 
 ~~~
