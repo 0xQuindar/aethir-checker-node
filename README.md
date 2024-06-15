@@ -4,20 +4,28 @@ Aethier Checker Node - Podman Container
 HowTo: 
 
 1. Install podman and podman-compose
-`dnf install podman podman-compose -y`
+~~~
+dnf install podman podman-compose -y
+~~~
 
 2. Create the persistent storage volume
-`podman volume create aethir-checker-storage`
+~~~
+podman volume create aethir-checker-storage
+~~~
 
 3. Build the container
-`podman compose build`
+~~~
+podman compose build
+~~~
 
 4. Start the Container
-`podman compose up -d`
+~~~
+podman compose up -d
+~~~
 
 5. Create the burner wallet in the container
 ~~~
-`podman exec -it aethir-checker-node /opt/aethir/AethirCheckerCLI`
+podman exec -it aethir-checker-node /opt/aethir/AethirCheckerCLI
 [...] 
 Please input:y -> Accept ToS
 [...] 
@@ -33,7 +41,7 @@ Please input:aethir wallet export
 
 7. Accept the license delegation
 ~~~
-`podman exec -it aethir-checker-node /opt/aethir/AethirCheckerCLI`
+podman exec -it aethir-checker-node /opt/aethir/AethirCheckerCLI
 [...] 
 aethir license list --pending
 [...] 
