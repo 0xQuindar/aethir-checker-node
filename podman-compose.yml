@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+  aethir-checker-node:
+    build: .
+    image: aethir-checker-node
+    container_name: aethir-checker-node
+    command: ./AethirCheckerService
+    restart: unless-stopped
+    tty: false
+    volumes:
+      - aethir-checker-storage:/usr/key
+
+volumes:
+  aethir-checker-storage:
+    external: true
