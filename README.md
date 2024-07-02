@@ -83,7 +83,7 @@ git clone https://github.com/0xQuindar/aethir-checker-node.git .
 podman compose build
 ~~~
 
-4. Start the container and check the log
+3. Start the container and check the log
 ~~~
 systemctl start container-aethir-checker-node.service
 podman exec -it aethir-checker-node tail -n 50 -f /opt/aethir/log/server.log
