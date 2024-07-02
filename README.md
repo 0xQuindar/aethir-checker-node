@@ -1,8 +1,6 @@
 # Aethir Checker Node - Podman Container
---------------------------------------------
 
 ## Setup
---------------
 
 1. Install dependencies
 ~~~
@@ -66,8 +64,8 @@ podman stop aethir-checker-node
 systemctl enable --now container-aethir-checker-node.service 
 ~~~
 
+
 ## Upgrade
---------------
 
 1. Stop running container
 ~~~
