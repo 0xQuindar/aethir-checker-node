@@ -1,7 +1,8 @@
-Aethir Checker Node - Podman Container
+#Aethir Checker Node - Podman Container
 --------------------------------------------
 
-HowTo: 
+## Setup
+--------------
 
 1. Install dependencies
 ~~~
@@ -64,3 +65,27 @@ systemctl daemon-reload
 podman stop aethir-checker-node
 systemctl enable --now container-aethir-checker-node.service 
 ~~~
+
+## Upgrade
+--------------
+
+1. Stop running container
+~~~
+systemctl stop container-aethir-checker-node.service 
+~~~
+
+2. Download latest repository version and build new container
+~~~
+cd /opt/aethir
+rm -rf /opt/aethir/.git
+rm -rf /opt/aethir/*
+git clone https://github.com/0xQuindar/aethir-checker-node.git .
+podman compose build
+~~~
+
+4. Start the container and check the log
+~~~
+systemctl start container-aethir-checker-node.service
+podman exec -it aethir-checker-node tail -n 50 -f /opt/aethir/log/server.log
+~~~
+
