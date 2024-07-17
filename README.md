@@ -17,12 +17,12 @@ podman volume create aethir-checker-storage
 mkdir /opt/aethir
 cd /opt/aethir
 git clone https://github.com/0xQuindar/aethir-checker-node.git .
-podman compose build
+podman compose -f /opt/aethir/podman-compose.yml build
 ~~~
 
 4. Start the new container and check the status
 ~~~
-podman compose up -d
+podman compose -f /opt/aethir/podman-compose.yml up -d
 podman ps
 ~~~
 
