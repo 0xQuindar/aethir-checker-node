@@ -87,3 +87,14 @@ systemctl start container-aethir-checker-node.service
 podman exec -it aethir-checker-node tail -n 50 -f /opt/aethir/log/server.log
 ~~~
 
+Copy & Paste: 
+~~~
+systemctl stop container-aethir-checker-node.service
+cd /opt/aethir
+rm -rf /opt/aethir/.git
+rm -rf /opt/aethir/*
+git clone https://github.com/0xQuindar/aethir-checker-node.git .
+podman compose build
+systemctl start container-aethir-checker-node.service
+podman exec -it aethir-checker-node tail -n 50 -f /opt/aethir/log/server.log
+~~~
