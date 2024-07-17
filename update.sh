@@ -4,6 +4,9 @@
 DIR="/opt/aethir"
 BUILD_DIR="$DIR/build"
 
+# Stop the service
+systemctl stop container-aethir-checker-node.service
+
 # Ensure the script is run from the correct directory
 cd $DIR || exit 1
 
@@ -20,5 +23,8 @@ git checkout origin/main -- build/
 echo "Building the container..."
 podman-compose -f $BUILD_DIR/podman-compose.yml build
 
-echo "Upgrade process completed."
+# Start the service
+systemctl start container-aethir-checker-node.service
 
+echo "Upgrade process completed, here is the log:"
+podman exec -it aethir-checker-node tail -f -n 25 /opt/aethir/log/server.log
