@@ -75,8 +75,7 @@ cli_cleanup
 # -------------------------------------------
 if [ "$RUN_MODE" = "cron" ]; then
     if [ $EXIT_STATUS -ne 0 ]; then
-        echo -e "Subject: Aethir Checker on $HOSTNAME has failed\n\nHealth check for container $CONTAINER has failed." | $MAIL_CMD root
-
+        echo "Health check for container $CONTAINER has failed." | $MAIL_CMD -s "Monitoring Alert: Aethir Checker Node on $HOSTNAME has failed" root
     fi
     # No output for success
 elif [ "$RUN_MODE" = "icinga" ]; then
